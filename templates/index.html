@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Real-Time Emotion Detection</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <h2>Emotion Detection (Real-Time)</h2>
+    <video id="video" width="480" height="360" autoplay></video>
+    <canvas id="canvas" width="224" height="224" style="display: none"></canvas>
+    <h2 id="result">Detecting...</h2>
+
+    <div
+      style="
+        max-width: 900px;
+        margin: 40px auto 32px auto;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(30, 40, 90, 0.08);
+        padding: 24px 16px 8px 16px;
+        height: 400px;
+      "
+    >
+      <canvas
+        id="historyChart"
+        style="height: 360px !important; width: 100% !important"
+      ></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@1.2.1/dist/chartjs-plugin-zoom.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
