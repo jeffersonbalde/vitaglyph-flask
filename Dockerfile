@@ -7,6 +7,7 @@ WORKDIR /app
 COPY . /app
 
 RUN pip install --upgrade pip
+RUN apt-get remove -y python3-blinker
 RUN pip install -r requirements.txt
 
 EXPOSE 8080
