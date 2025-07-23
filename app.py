@@ -26,13 +26,17 @@ x = Dense(256, activation='relu')(x)
 x = tf.keras.layers.Dropout(0.4)(x)
 predictions = Dense(NUM_CLASSES, activation='softmax')(x)
 model = Model(inputs=input_tensor, outputs=predictions)
-
+    
 model.load_weights(MODEL_PATH)
 print("Model loaded.")
 
+# @app.route('/')
+# def index():
+#     return render_template('index.html')
+
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return "Flask server is running! Try the /predict endpoint with a POST request."
 
 @app.route('/predict', methods=['POST'])
 def predict():
